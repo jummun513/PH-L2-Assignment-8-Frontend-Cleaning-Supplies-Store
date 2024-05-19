@@ -195,7 +195,7 @@ const ClientNavbar = () => {
                     borderRadius: "5px",
                     padding: { md: "3px 7px", lg: "4px 10px" },
                     transition: "0.2s linear",
-                    "&:hover": { bgcolor: "#222831", color: "#fff" },
+                    "&:hover": { bgcolor: "#002379", color: "#fff" },
                   }}
                 >
                   {text.label}

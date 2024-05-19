@@ -1,3 +1,4 @@
+import ClientFooter from "@/component/shared/ClientFooter/ClientFooter";
 import ClientNavbar from "@/component/shared/ClientNavbar/ClientNavbar";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
@@ -5,6 +6,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <ClientNavbar></ClientNavbar>
       {children}
+      <ClientFooter></ClientFooter>
     </>
   );
 };
