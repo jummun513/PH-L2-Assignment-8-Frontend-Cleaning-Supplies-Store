@@ -1,6 +1,7 @@
 "use client";
 import CustomButton from "@/component/ui/Button/CustomButton";
 import {
+  Avatar,
   Box,
   Container,
   Divider,
@@ -9,9 +10,13 @@ import {
   List,
   ListItem,
   ListItemButton,
+  ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
   Stack,
   Theme,
+  Tooltip,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -20,6 +25,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { Dashboard, Logout } from "@mui/icons-material";
 
 const menuList = [
   { label: "Home", path: "/" },
@@ -30,14 +36,23 @@ const menuList = [
   { label: "Contact Us", path: "/contact-us" },
 ];
 
+const user = {
+  name: { firstName: "Jummun", lastName: "Islam" },
+  email: "jummunislam513@gmail.com",
+  photoUrl:
+    "https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+};
+// const user = null;
+
 const ClientNavbar = () => {
   const pathName = usePathname();
   const isSmallDevice = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
   );
-  const [open, setOpen] = useState(false);
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+
   const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
+    setIsOpenDrawer(newOpen);
   };
 
   return (
@@ -80,9 +95,13 @@ const ClientNavbar = () => {
                 </Box>
               </Typography>
               <Stack direction="row" alignItems="center" gap={{ xs: 1, sm: 2 }}>
-                <CustomButton fullWidth={false} href="/login">
-                  Login
-                </CustomButton>
+                {user ? (
+                  <UserMenu></UserMenu>
+                ) : (
+                  <CustomButton fullWidth={false} href="/login">
+                    Login
+                  </CustomButton>
+                )}
                 <IconButton
                   color="inherit"
                   aria-label="open drawer"
@@ -93,7 +112,7 @@ const ClientNavbar = () => {
                 </IconButton>
               </Stack>
             </Stack>
-            <Drawer anchor="right" open={open}>
+            <Drawer anchor="right" open={isOpenDrawer}>
               <Box
                 component="div"
                 sx={{
@@ -202,9 +221,13 @@ const ClientNavbar = () => {
                 </Typography>
               ))}
             </Stack>
-            <CustomButton fullWidth={false} href="/login">
-              Login
-            </CustomButton>
+            {user ? (
+              <UserMenu />
+            ) : (
+              <CustomButton fullWidth={false} href="/login">
+                Login
+              </CustomButton>
+            )}
           </Stack>
         )}
       </Container>
@@ -214,27 +237,101 @@ const ClientNavbar = () => {
 
 export default ClientNavbar;
 
-{
-  /* <List>
-            <ListItem>
-              <ListItemText>
-                <Link href="/">Home</Link>
-              </ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemText>
-                <Link href="/about">About</Link>
-              </ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemText>
-                <Link href="/contact">Contact</Link>
-              </ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemText>
-                <Link href="/about">Faq</Link>
-              </ListItemText>
-            </ListItem>
-          </List> */
-}
+export const UserMenu = () => {
+  const pathName = usePathname();
+  const isSmallDevice = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("md")
+  );
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  console.log(pathName);
+  return (
+    <>
+      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+        <Tooltip title="Account settings">
+          <IconButton
+            onClick={handleClick}
+            size="small"
+            sx={{ ml: 2 }}
+            aria-controls={open ? "account-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+          >
+            <Avatar
+              alt={user?.name?.firstName + "image"}
+              src={
+                user?.photoUrl ||
+                "https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"
+              }
+              sx={
+                isSmallDevice
+                  ? { width: 36, height: 36 }
+                  : { width: 48, height: 48 }
+              }
+            />
+          </IconButton>
+        </Tooltip>
+      </Box>
+      <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: "visible",
+            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+            mt: 1.5,
+            "& .MuiAvatar-root": {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            "&::before": {
+              content: '""',
+              display: "block",
+              position: "absolute",
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: "background.paper",
+              transform: "translateY(-50%) rotate(45deg)",
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+      >
+        <MenuItem onClick={handleClose}>
+          <Avatar /> Profile
+        </MenuItem>
+        <Divider />
+        <Link href="/dashboard">
+          <MenuItem selected={pathName === "/dashboard"} onClick={handleClose}>
+            <ListItemIcon>
+              <Dashboard fontSize="small" />
+            </ListItemIcon>
+            Dashboard
+          </MenuItem>
+        </Link>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
+      </Menu>
+    </>
+  );
+};

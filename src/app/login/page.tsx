@@ -7,7 +7,6 @@ import {
   Container,
   CssBaseline,
   FormControlLabel,
-  Grid,
   TextField,
   Theme,
   Typography,
@@ -21,6 +20,7 @@ const LoginPage = () => {
   const isSmallDevice = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
   );
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -50,7 +50,7 @@ const LoginPage = () => {
           fontWeight={600}
           marginTop={{ xs: 1, md: 2 }}
         >
-          Sign In
+          Log In
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -77,7 +77,15 @@ const LoginPage = () => {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label={
+              <Typography
+                variant="body2"
+                component="span"
+                fontSize={{ xs: "12px", md: "14px" }}
+              >
+                Remember me
+              </Typography>
+            }
           />
           <Button
             type="submit"
