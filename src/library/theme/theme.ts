@@ -43,7 +43,7 @@ export const theme = createTheme({
   },
   typography: {
     body1: {
-      color: "#0B1134CC",
+      color: "#000",
     },
   },
 });
