@@ -250,7 +250,7 @@ export const UserMenu = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  console.log(pathName);
+
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>

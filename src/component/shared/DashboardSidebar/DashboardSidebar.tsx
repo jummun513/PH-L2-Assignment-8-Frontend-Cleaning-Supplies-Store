@@ -21,22 +21,6 @@ import { useState } from "react";
 const menuList = [
   { label: "Dashboard", path: "/dashboard" },
   { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
-  { label: "All Products", path: "/dashboard/all-products" },
 ];
 
 const DashboardSidebar = () => {
