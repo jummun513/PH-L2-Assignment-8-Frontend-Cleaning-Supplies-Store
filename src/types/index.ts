@@ -8,5 +8,5 @@ export type Product = {
   isTrending: boolean;
   isFlashSale: boolean;
   isCarousel: boolean;
-  image: object;
+  image: { url: string; publicId: string };
 };

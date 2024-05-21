@@ -56,7 +56,11 @@ const ClientNavbar = () => {
   };
 
   return (
-    <Box component="div" sx={{ bgcolor: "#EEEEEE" }}>
+    <Box
+      component="div"
+      bgcolor="secondary.main"
+      sx={{ position: "sticky", top: 0, left: 0, zIndex: "999" }}
+    >
       <Container>
         {isSmallDevice ? (
           <Box component="div">
