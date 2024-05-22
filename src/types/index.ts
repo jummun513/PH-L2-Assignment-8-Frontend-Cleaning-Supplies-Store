@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type Product = {
   _id: string;
   title: string;
@@ -9,4 +11,10 @@ export type Product = {
   isFlashSale: boolean;
   isCarousel: boolean;
   image: { url: string; publicId: string };
+};
+
+export type CategoryItem = {
+  id: string;
+  title: string;
+  image: StaticImageData;
 };

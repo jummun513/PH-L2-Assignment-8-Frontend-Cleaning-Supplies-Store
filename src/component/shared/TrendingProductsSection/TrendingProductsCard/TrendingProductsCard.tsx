@@ -41,11 +41,13 @@ const TrendingProductsCard = ({ item }: { item: Product }) => {
         paddingBottom: "10px",
       }}
     >
-      <Chip
-        color="warning"
-        sx={{ position: "absolute", top: "5px", left: "10px" }}
-        label="5% off"
-      />
+      {item.isTrending && (
+        <Chip
+          color="warning"
+          sx={{ position: "absolute", top: "5px", left: "10px" }}
+          label="5% off"
+        />
+      )}
       <CardMedia
         sx={{
           display: "flex",
