@@ -73,6 +73,7 @@ const DishWashingItemDetails = async ({ params }: ItemId) => {
         </Box>
         <Card
           sx={{
+            position: "relative",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             padding: { xs: "40px 0", md: "60px 0" },
@@ -94,7 +95,7 @@ const DishWashingItemDetails = async ({ params }: ItemId) => {
             <Image
               src={singleData?.data?.image?.url}
               alt={singleData?.data?.title}
-              fill
+              layout="fill"
               sizes="100%"
               loading="lazy"
               style={{ objectFit: "contain", top: 0, left: 0 }}

@@ -17,6 +17,7 @@ const CategoriesSelectionCard = ({ item }: { item: CategoryItem }) => {
         <CardActionArea>
           <CardMedia
             sx={{
+              position: "relative",
               display: "flex",
               justifyContent: "center",
               padding: 0,
@@ -26,7 +27,7 @@ const CategoriesSelectionCard = ({ item }: { item: CategoryItem }) => {
             <Image
               src={item.image}
               alt={item.title}
-              fill
+              layout="fill"
               sizes="100%"
               loading="lazy"
               style={{ objectFit: "cover" }}
