@@ -115,18 +115,18 @@ const DashboardSidebar = () => {
                   selected={pathName === text.path}
                   sx={{
                     padding: 0,
-                    backgroundColor: "#D1D5DB",
+                    backgroundColor: "#FFF",
                     "&.Mui-selected": {
-                      backgroundColor: "#fff",
-                    },
-                    "&.Mui-selected:hover": {
-                      backgroundColor: "#fff",
-                    },
-                    "&.Mui-focusVisible": {
                       backgroundColor: "#D1D5DB",
                     },
+                    "&.Mui-selected:hover": {
+                      backgroundColor: "#D1D5DB",
+                    },
+                    "&.Mui-focusVisible": {
+                      backgroundColor: "#FFF",
+                    },
                     ":hover": {
-                      backgroundColor: "#fff",
+                      backgroundColor: "#D1D5DB",
                     },
                   }}
                 >
