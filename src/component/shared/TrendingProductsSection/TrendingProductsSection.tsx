@@ -56,7 +56,7 @@ const TrendingProductsSection = async () => {
           </Box>
           <Button
             fullWidth={false}
-            href="/flash-sale"
+            href="/dishwashing-items"
             sx={{
               padding: {
                 xs: "5px 8px 4px 16px",

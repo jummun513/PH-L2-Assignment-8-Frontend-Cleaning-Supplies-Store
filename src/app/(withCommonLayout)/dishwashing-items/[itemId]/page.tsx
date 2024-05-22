@@ -10,26 +10,27 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 
-export const generateStaticParams = async () => {
-  try {
-    const res = await fetch(`${process.env.BACKEND_BASE_URL}/api/v1/products`);
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const products = await res.json();
+// export const generateStaticParams = async () => {
+//   try {
+//     const res = await fetch(`${process.env.BACKEND_BASE_URL}/api/v1/products`);
+//     if (!res.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+//     const products = await res.json();
+//     console.log(products);
 
-    if (!Array.isArray(products)) {
-      throw new Error("Expected an array of products.");
-    }
+//     if (!Array.isArray(products)) {
+//       throw new Error("Expected an array of products.");
+//     }
 
-    return products.slice(0, 3).map((product: Product) => ({
-      itemId: product._id,
-    }));
-  } catch (error) {
-    console.error("Failed to fetch products:", error);
-    return [];
-  }
-};
+//     return products.slice(0, 3).map((product: Product) => ({
+//       itemId: product._id,
+//     }));
+//   } catch (error) {
+//     console.error("Failed to fetch products:", error);
+//     return [];
+//   }
+// };
 
 const DishWashingItemDetails = async ({ params }: ItemId) => {
   let singleData;
@@ -40,10 +41,21 @@ const DishWashingItemDetails = async ({ params }: ItemId) => {
         cache: "no-store",
       }
     );
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
     singleData = await res.json();
   } catch (error) {
     console.log(error);
-    throw new Error("Network response was not ok");
+    return (
+      <Box component="div" my={{ xs: "60px", md: "80px" }}>
+        <Container>
+          <Typography variant="h6" color="error">
+            Failed to load the product details.
+          </Typography>
+        </Container>
+      </Box>
+    );
   }
 
   return (

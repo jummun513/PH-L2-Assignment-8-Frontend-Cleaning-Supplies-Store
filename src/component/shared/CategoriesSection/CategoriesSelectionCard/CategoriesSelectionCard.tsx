@@ -27,7 +27,7 @@ const CategoriesSelectionCard = ({ item }: { item: CategoryItem }) => {
             <Image
               src={item.image}
               alt={item.title}
-              layout="fill"
+              fill
               sizes="100%"
               loading="lazy"
               style={{ objectFit: "cover" }}

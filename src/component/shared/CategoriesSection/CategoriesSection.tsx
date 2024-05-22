@@ -60,7 +60,7 @@ const CategoriesSection = () => {
           </Grid>
           <Button
             fullWidth={false}
-            href="/flash-sale"
+            href="/categories"
             sx={{
               padding: {
                 xs: "5px 8px 4px 16px",
