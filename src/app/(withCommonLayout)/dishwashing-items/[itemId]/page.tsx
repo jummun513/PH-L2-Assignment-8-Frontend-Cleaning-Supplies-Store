@@ -6,7 +6,6 @@ import {
   CardMedia,
   Container,
   Rating,
-  Stack,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
@@ -85,7 +84,7 @@ const DishWashingItemDetails = async ({ params }: ItemId) => {
               top: 0,
               left: 0,
               margin: "0 auto",
-              width: { xs: "30%", md: "40%" },
+              width: { xs: "90%", md: "40%" },
               height: { xs: "300px", sm: "400px", md: "500px" },
               display: "flex",
               justifyContent: "center",
@@ -98,7 +97,7 @@ const DishWashingItemDetails = async ({ params }: ItemId) => {
               fill
               sizes="100%"
               loading="lazy"
-              style={{ objectFit: "cover", top: 0, left: 0 }}
+              style={{ objectFit: "contain", top: 0, left: 0 }}
             />
           </CardMedia>
           <CardContent
