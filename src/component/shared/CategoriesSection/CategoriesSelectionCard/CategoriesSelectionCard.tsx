@@ -11,18 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CategoriesSelectionCard = ({ item }: { item: CategoryItem }) => {
-  // const searchParams = useSearchParams();
-  // const pathname = usePathname();
-  // const createQueryString = useCallback(
-  //   (name: string, value: string) => {
-  //     const params = new URLSearchParams(searchParams.toString());
-  //     params.set(name, value);
-
-  //     return params.toString();
-  //   },
-  //   [searchParams]
-  // );
-
   return (
     <Card sx={{ position: "relative", padding: 0 }}>
       <Link href={`/dishwashing-items?category=${item.title}`}>

@@ -1,5 +1,9 @@
 const AboutUsPage = () => {
-  return <div>This is about us page</div>;
+  return (
+    <div className="h-[20rem] flex justify-center items-center font-bold text-xl xl:text-3xl">
+      This is about us page
+    </div>
+  );
 };
 
 export default AboutUsPage;

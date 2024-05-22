@@ -28,7 +28,7 @@ const HeroSection = async () => {
       sx={{
         height: {
           xs: "55rem",
-          xl: "70rem",
+          xl: "55rem",
         },
         display: "flex",
         alignItems: "center",

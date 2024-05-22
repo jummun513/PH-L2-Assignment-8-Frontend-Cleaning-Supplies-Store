@@ -48,7 +48,7 @@ const ProductsPage = async ({
                 fontWeight={600}
                 textAlign="center"
               >
-                All Dishwahing Items
+                All Dish Washing Items
               </Typography>
               <Typography
                 textAlign="center"

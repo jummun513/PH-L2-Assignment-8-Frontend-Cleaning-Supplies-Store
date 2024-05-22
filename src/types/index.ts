@@ -18,3 +18,9 @@ export type CategoryItem = {
   title: string;
   image: StaticImageData;
 };
+
+export type ItemId = {
+  params: {
+    itemId: string;
+  };
+};
