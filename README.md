@@ -1,4 +1,4 @@
-# PH-L2-Frontend-Track-M29-A8-Cleaning-supplies-store-Frontend: [Live Link](https://ph-l2-frontend-track-m29-a8-cleaning-supplies-store-6r84hs36k.vercel.app)
+# PH-L2-Frontend-Track-M29-A8-Cleaning-supplies-store-Frontend: [Live Link](https://ph-l2-frontend-track-m29-a8-cleaning-supplies-store-frontend.vercel.app)
 
 ## Project Installation In Local Server:
 
