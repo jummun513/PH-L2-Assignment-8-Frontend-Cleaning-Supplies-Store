@@ -30,7 +30,7 @@ import { Dashboard, Logout } from "@mui/icons-material";
 const menuList = [
   { label: "Home", path: "/" },
   { label: "Categories", path: "/categories" },
-  { label: "Products", path: "/products" },
+  { label: "Products", path: "/dishwashing-items" },
   { label: "Flash Sale", path: "/flash-sale" },
   { label: "About Us", path: "/about-us" },
   { label: "Contact Us", path: "/contact-us" },

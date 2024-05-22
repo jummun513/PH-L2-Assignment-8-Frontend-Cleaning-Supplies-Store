@@ -2,19 +2,34 @@
 
 import { Product } from "@/types";
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Chip,
+  Rating,
+  Stack,
+  Theme,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
-import Countdown from "react-countdown";
+import { styled } from "@mui/material/styles";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Link from "next/link";
+
+const StyledRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#ff3d47",
+  },
+});
 
 const TrendingProductsCard = ({ item }: { item: Product }) => {
+  const isSmallDevice = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("md")
+  );
   return (
     <Card
       sx={{
@@ -63,9 +78,30 @@ const TrendingProductsCard = ({ item }: { item: Product }) => {
           {item.price + " $"}
         </Typography>
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button size="small">Details</Button>
-      </CardActions>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        padding="0 5px"
+      >
+        <StyledRating
+          name="customized-color"
+          value={item.rating}
+          getLabelText={(value: number) =>
+            `${value} Heart${value !== 1 ? "s" : ""}`
+          }
+          precision={0.5}
+          icon={<FavoriteIcon fontSize="inherit" />}
+          emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+          readOnly
+          size={isSmallDevice ? "small" : "medium"}
+        />
+        <Link href={`/dishwashing-items/${item._id}`}>
+          <CardActions>
+            <Button size="small">Details</Button>
+          </CardActions>
+        </Link>
+      </Stack>
     </Card>
   );
 };

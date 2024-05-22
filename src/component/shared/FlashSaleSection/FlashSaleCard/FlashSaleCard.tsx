@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import Countdown from "react-countdown";
 
 const FlashSaleCard = ({ item }: { item: Product }) => {
@@ -63,9 +64,11 @@ const FlashSaleCard = ({ item }: { item: Product }) => {
           {item.price + " $"}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Details</Button>
-      </CardActions>
+      <Link href={`/dishwashing-items/${item._id}`}>
+        <CardActions>
+          <Button size="small">Details</Button>
+        </CardActions>
+      </Link>
     </Card>
   );
 };

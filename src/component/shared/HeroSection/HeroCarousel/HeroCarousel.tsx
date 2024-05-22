@@ -14,6 +14,7 @@ const HeroCarousel = ({ data }: { data: Product[] }) => {
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         breakpoints={{
           0: {

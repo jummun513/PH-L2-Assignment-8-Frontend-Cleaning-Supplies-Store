@@ -60,11 +60,23 @@ const CategoriesSection = () => {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 12, md: 12 }}
           >
-            {categoriesCard?.slice(0, 4)?.map((item, index) => (
+            {categoriesCard?.map((item, index) => (
               <Grid
                 item
                 xs={6}
-                md={index === 0 ? 8 : index === 1 ? 4 : index === 2 ? 4 : 8}
+                md={
+                  index === 0
+                    ? 3
+                    : index === 1
+                    ? 6
+                    : index === 2
+                    ? 3
+                    : index === 3
+                    ? 4
+                    : index === 4
+                    ? 4
+                    : 4
+                }
                 key={index}
               >
                 <Card sx={{ position: "relative", padding: 0 }}>
